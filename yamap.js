@@ -4,7 +4,7 @@ const LOCATION = {center: [37.622091, 55.765291], zoom: 14};
       main();
       async function main() {
         await ymaps3.ready;
-        const {YMap, YMapDefaultSchemeLayer, YMapControls, YMapDefaultFeaturesLayer, YMapMarker} = ymaps3;
+        const {YMap, YMapControls, YMapDefaultFeaturesLayer, YMapMarker} = ymaps3;
 
         const {YMapZoomControl} = await ymaps3.import('@yandex/ymaps3-controls@0.0.1');
 
