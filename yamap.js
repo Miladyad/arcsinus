@@ -8,7 +8,10 @@ const LOCATION = {center: [37.622091, 55.765291], zoom: 14};
 
         const {YMapZoomControl} = await ymaps3.import('@yandex/ymaps3-controls@0.0.1');
 
-        map = new YMap(document.getElementById('app'), {location: LOCATION});
+        map = new YMap(document.getElementById('app'), {
+                    location: LOCATION,
+                    behaviors: ['drag', 'pinchZoom', 'dblClick']
+                });
 
         map.addChild(new YMapDefaultFeaturesLayer());
         map.addChild(new YMapControls({position: 'right'}).addChild(new YMapZoomControl({})));
