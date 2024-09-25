@@ -66,28 +66,24 @@ function showFlat(address) {
   );
 }
 
-
-function showSelected(suggestion) {
-  var address = suggestion.data;
-  showCountry(address);
-  showPostalCode(address);
-  showRegion(address);
-  showCity(address);
-  showSettlement(address);
-  showStreet(address);
-  showHouse(address);
-  showHN(address);
-  showFlat(address); 
-}
-
 $("#field2682865").suggestions({
 	token: token,
 	type: "ADDRESS",
-	onSelect: showSelected,
-    count: 10,
+	count: 10,
+
 	onSelect: function(suggestion) {
-    console.log(suggestion);
-    $('#error').removeClass('error2');
+	console.log(suggestion);
+	var address = suggestion.data;
+	showCountry(address);
+	showPostalCode(address);
+	showRegion(address);
+	showCity(address);
+	showSettlement(address);
+	showStreet(address);
+	showHouse(address);
+	showHN(address);
+	showFlat(address);
+	$('#error').removeClass('error2');
     if ($('#error').length) {
       $('#error').empty();
     }
