@@ -15,21 +15,21 @@ function join(arr /*, separator */) {
 }
 
 function showCountry(address) {
-	if (address.flat) {
+	if (address.country) {
 		$("#field2699209").val(address.country);
 	} else 
     $("#field2699209").val("-");
 }
 
 function showPostalCode(address) {
-	if (address.flat) {
+	if (address.postal_code) {
 		$("#field2699208").val(address.postal_code);
 	} else 
     $("#field2699208").val("-");
 }
 
 function showRegion(address) {
-	if (address.flat) {
+	if (address.region) {
 		$("#field2699211").val(join([
 			join([address.region_type, address.region], " "),
 			join([address.area_type, address.area], " ")
@@ -39,14 +39,14 @@ function showRegion(address) {
 }
 
 function showCity(address) {
-	if (address.flat) {
+	if (address.city) {
 		$("#field2699218").val(address.city);
 	} else 
     $("#field2699218").val("-");
 }
 
 function showSettlement(address) {
-	if (address.flat) {
+	if (address.settlement) {
 		$("#field2699219").val(
 			join([address.settlement_type, address.settlement], " ")
 	  );
@@ -55,7 +55,7 @@ function showSettlement(address) {
 }
 
 function showStreet(address) {
-	if (address.flat) {
+	if (address.street) {
 		$("#field2699220").val(
 			join([address.street_type, address.street], " ")
 		);
@@ -64,14 +64,14 @@ function showStreet(address) {
 }
 
 function showHouse(address) {
-	if (address.flat) {
+	if (address.house) {
 		$("#field2699221").val(address.house);
 	} else 
     $("#field2699221").val("-");
 }
 
 function showHN(address) {
-	if (address.flat) {
+	if (address.block) {
 		$("#field2699222").val(address.block);		
 	} else 
     $("#field2699222").val("-");
@@ -85,7 +85,7 @@ function showFlat(address) {
 }
 
 function showRoom(address) {
-	if (address.flat) {
+	if (address.room) {
 		$("#field2699319").val(address.room);
 	} else 
     $("#field2699319").val("-");
