@@ -70,6 +70,7 @@ function showRoom(address) {
   $("#field2699319").val(
     join([address.room_type, address.room], " ")
   );
+  console.log(join([address.room_type, address.room], " "));
 }
 
 $("#field2682865").suggestions({
