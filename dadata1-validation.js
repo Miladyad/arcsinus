@@ -66,6 +66,12 @@ function showFlat(address) {
   );
 }
 
+function showRoom(address) {
+  $("#field2699319").val(
+    join([address.room_type, address.room], " ")
+  );
+}
+
 $("#field2682865").suggestions({
 	token: token,
 	type: "ADDRESS",
@@ -83,6 +89,7 @@ $("#field2682865").suggestions({
 	showHouse(address);
 	showHN(address);
 	showFlat(address);
+	showRoom(address);
 	$('#error').removeClass('error2');
     if ($('#error').length) {
       $('#error').empty();
