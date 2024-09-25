@@ -117,6 +117,7 @@ function showCompanySuggestion(suggestion) {
   }
   
   $("#field2699927").val(data.ogrn);
+  $("#field2687954").val(data.inn);
 }
 
 // По ИНН ищем ОГРН и название организации полное в скрытые поля
@@ -124,5 +125,6 @@ $("#field2687954").suggestions({
   token: token,
   type: "PARTY",
   count: 5,
+  minChars: 10,
   onSelect: showCompanySuggestion
 });
