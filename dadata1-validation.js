@@ -90,3 +90,38 @@ function showRoom(address) {
 	} else 
     $("#field2699319").val("-");
 }
+
+$("#field2682865").suggestions({
+	token: token,
+	type: "ADDRESS",
+	count: 10,
+
+	onSelect: function(suggestion) {
+		console.log(suggestion);
+		var address = suggestion.data;
+		showCountry(address);
+		showPostalCode(address);
+		showRegion(address);
+		showCity(address);
+		showSettlement(address);
+		showStreet(address);
+		showHouse(address);
+		showHN(address);
+		showFlat(address);
+		showRoom(address);
+		$('#error').removeClass('error2');
+		if ($('#error').length) {
+		  $('#error').empty();
+		}
+	},
+	  
+	onSearchError: function() {
+		$("#error").text("Подсказки не работают"); 
+	},
+  
+	onSelectNothing: function() {
+		$('#error').addClass('error2');
+		$('#error').html('<span>Выберите адрес из списка</span>');
+		$('#field2682865').addClass('error2');
+	}
+});
