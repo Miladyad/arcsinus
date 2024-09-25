@@ -34,61 +34,103 @@ function join(arr /*, separator */) {
 // первое поле адреса
 
 function showPostalCode1(address) {
-  $("#field2699412").val(address.postal_code);
+	if (address.postal_code) {
+		$("#field2699412").val(address.postal_code);
+	} else 
+		$("#field2699412").val("-");
 }
 
 function showCountry1(address) {
-  $("#field2699414").val(address.country);
+	if (address.country) {
+		$("#field2699414").val(address.country);
+	} else 
+		$("#field2699414").val("-");
 }
 
 function showRegion1(address) {
-  $("#field2699415").val(join([
-    join([address.region_type, address.region], " "),
-    join([address.area_type, address.area], " ")
-  ]));
+	if (address.region) {
+		$("#field2699415").val(join([
+			join([address.region_type, address.region], " "),
+			join([address.area_type, address.area], " ")
+		  ]));
+	} else 
+		$("#field2699415").val("-");
 }
 
 function showCity1(address) {
-  $("#field2699416").val(address.city);
+	if (address.city) {
+		$("#field2699416").val(address.city);
+	} else 
+		$("#field2699416").val("-");
 }
 
 function showSettlement1(address) {
-  $("#field2699417").val(address.settlement);
+	if (address.settlement) {
+		$("#field2699417").val(address.settlement);
+	} else 
+		$("#field2699417").val("-");
 }
 
 function showSettlementType1(address) {
-  $("#field2699418").val(address.settlement_type);
+	if (address.settlement_type) {
+		$("#field2699418").val(address.settlement_type);
+	} else 
+		$("#field2699418").val("-");
 }
 
 function showStreet1(address) {
-  $("#field2699419").val(address.street);
+	if (address.street) {
+		$("#field2699419").val(address.street);
+	} else 
+		$("#field2699419").val("-");
 }
 
 function showStreetType1(address) {
-  $("#field2699420").val(address.street_type);
+	if (address.street_type) {
+		$("#field2699420").val(address.street_type);
+	} else 
+		$("#field2699420").val("-");
 }
 
 function showHouse1(address) {
-  $("#field2699421").val(address.house);
+	if (address.house) {
+		$("#field2699421").val(address.house);
+	} else 
+		$("#field2699421").val("-");
 }
 
 function showHouseType1(address) {
-  $("#field2699422").val(address.house_type);
+	if (address.house_type) {
+		$("#field2699422").val(address.house_type);
+	} else 
+		$("#field2699422").val("-");
 }
 
 function showHN1(address) {
-  $("#field2699424").val(address.block);
+	if (address.block) {
+		$("#field2699424").val(address.block);
+	} else 
+		$("#field2699424").val("-");
 }
 
 function showHNType1(address) {
-  $("#field2699425").val(address.block_type);
+	if (address.block_type) {
+		$("#field2699425").val(address.block_type);
+	} else 
+		$("#field2699425").val("-");
 }
 
 function showFlat1(address) {
-  $("#field2699426").val(address.flat);
+	if (address.flat) {
+		$("#field2699426").val(address.flat);
+	} else 
+		$("#field2699426").val("-");
 }
 function showRoom1(address) {
-  $("#field2699438").val(address.room);
+	if (address.room) {
+		$("#field2699438").val(address.room);
+	} else 
+		$("#field2699438").val("-");  
 }
 
 $("#field2687983").suggestions({
@@ -117,8 +159,11 @@ $("#field2687983").suggestions({
 		if ($('#error1').length) {
 		  $('#error1').empty();
 		}
-	  },  
-	  onSelectNothing: function() {
+	  },
+	onSearchError: function() {
+		$("#error1").text("Подсказки не работают"); 
+	},
+	onSelectNothing: function() {
 		$('#error1').addClass('error2');
 		$('#error1').html('<span>Выберите адрес из списка</span>');
 		$('#field2687983').addClass('error2');
@@ -129,61 +174,104 @@ $("#field2687983").suggestions({
 // второе поле адреса
 
 function showCountry2(address) {
-  $("#field2699453").val(address.country);
+	if (address.country) {
+		$("#field2699453").val(address.country);
+	} else 
+		$("#field2699453").val("-");
 }
 
 function showPostalCode2(address) {
-  $("#field2699452").val(address.postal_code);
+	if (address.postal_code) {
+		$("#field2699452").val(address.postal_code);
+	} else 
+		$("#field2699452").val("-");
 }
 
 function showRegion2(address) {
-  $("#field2699455").val(join([
-    join([address.region_type, address.region], " "),
-    join([address.area_type, address.area], " ")
-  ]));
+	if (address.region) {
+		 $("#field2699455").val(join([
+			join([address.region_type, address.region], " "),
+			join([address.area_type, address.area], " ")
+		  ]));
+	} else 
+		$("#field2699455").val("-");
 }
 
 function showCity2(address) {
-  $("#field2699456").val(address.city);
+	if (address.city) {
+		$("#field2699456").val(address.city);
+	} else 
+		$("#field2699456").val("-");
 }
 
 function showSettlement2(address) {
-  $("#field2699457").val(address.settlement);
+	if (address.settlement) {
+		$("#field2699457").val(address.settlement);
+	} else 
+		$("#field2699457").val("-");
 }
 
 function showSettlementType2(address) {
-  $("#field2699459").val(address.settlement_type);
+	if (address.settlement_type) {
+		$("#field2699459").val(address.settlement_type);
+	} else 
+		$("#field2699459").val("-");
 }
 
 function showStreet2(address) {
-  $("#field2699451").val(address.street);
+	if (address.street) {
+		$("#field2699451").val(address.street);
+	} else 
+		$("#field2699451").val("-");
 }
 
 function showStreetType2(address) {
-  $("#field2699450").val(address.street_type);
+	if (address.street_type) {
+		$("#field2699450").val(address.street_type);
+	} else 
+		$("#field2699450").val("-");
 }
 
 function showHouse2(address) {
-  $("#field2699449").val(address.house);
+	if (address.house) {
+		$("#field2699449").val(address.house);
+	} else 
+		$("#field2699449").val("-");  
 }
 
 function showHouseType2(address) {
-  $("#field2699448").val(address.house_type);
+	if (address.house_type) {
+		$("#field2699448").val(address.house_type);
+	} else 
+		$("#field2699448").val("-");
 }
 
 function showHN2(address) {
-  $("#field2699447").val(address.block);
+	if (address.block) {
+		$("#field2699447").val(address.block);
+	} else 
+		$("#field2699447").val("-");
 }
 
 function showHNType2(address) {
-  $("#field2699446").val(address.block_type);
+	if (address.block_type) {
+		$("#field2699446").val(address.block_type);
+	} else 
+		$("#field2699446").val("-");
 }
 
 function showFlat2(address) {
-  $("#field2699445").val(address.flat);
+	if (address.flat) {
+		$("#field2699445").val(address.flat);
+	} else 
+		$("#field2699445").val("-");
 }
+
 function showRoom2(address) {
-  $("#field2699444").val(address.room);
+	if (address.room) {
+		$("#field2699444").val(address.room);
+	} else 
+		$("#field2699444").val("-");
 }
 
 $("#field2687984").suggestions({
@@ -191,28 +279,31 @@ $("#field2687984").suggestions({
 	type: "ADDRESS",
     count: 10,
 	onSelect: function(suggestion) {
-    console.log(suggestion);
-	var address = suggestion.data;
-		showPostalCode2(address);
-		showCountry2(address);
-		showRegion2(address);
-		showCity2(address);
-		showSettlement2(address);
-		showSettlementType2(address);
-		showStreet2(address);
-		showStreetType2(address);
-		showHouse2(address);
-		showHouseType2(address);
-		showHN2(address);
-		showHNType2(address);
-		showFlat2(address); 
-		showRoom2(address);
-    $('#error2').removeClass('error2');
-	$('.submit').disabled = false;
-    if ($('#error2').length) {
-      $('#error2').empty();
-    }
-  },  
+		console.log(suggestion);
+		var address = suggestion.data;
+			showPostalCode2(address);
+			showCountry2(address);
+			showRegion2(address);
+			showCity2(address);
+			showSettlement2(address);
+			showSettlementType2(address);
+			showStreet2(address);
+			showStreetType2(address);
+			showHouse2(address);
+			showHouseType2(address);
+			showHN2(address);
+			showHNType2(address);
+			showFlat2(address); 
+			showRoom2(address);
+		$('#error2').removeClass('error2');
+		$('.submit').disabled = false;
+		if ($('#error2').length) {
+		  $('#error2').empty();
+		}
+	  },
+	onSearchError: function() {
+		$("#error2").text("Подсказки не работают"); 
+	},
   onSelectNothing: function() {
     $('#error2').addClass('error2');
     $('#error2').html('<span>Выберите адрес из списка</span>');
@@ -224,61 +315,103 @@ $("#field2687984").suggestions({
 // третье поле адреса
 
 function showCountry3(address) {
-  $("#field2699509").val(address.country);
+	if (address.country) {
+		$("#field2699509").val(address.country);
+	} else 
+		$("#field2699509").val("-");
 }
 
 function showPostalCode3(address) {
-  $("#field2699461").val(address.postal_code);
+	if (address.postal_code) {
+		$("#field2699461").val(address.postal_code);
+	} else 
+		$("#field2699461").val("-");
 }
 
 function showRegion3(address) {
-  $("#field2699510").val(join([
-    join([address.region_type, address.region], " "),
-    join([address.area_type, address.area], " ")
-  ]));
+	if (address.region) {
+		 $("#field2699510").val(join([
+			join([address.region_type, address.region], " "),
+			join([address.area_type, address.area], " ")
+		  ]));
+	} else 
+		$("#field2699510").val("-");
 }
 
 function showCity3(address) {
-  $("#field2699511").val(address.city);
+	if (address.city) {
+		$("#field2699511").val(address.city);
+	} else 
+		$("#field2699511").val("-");
 }
 
 function showSettlement3(address) {
-  $("#field2699512").val(address.settlement);
+	if (address.settlement) {
+		$("#field2699512").val(address.settlement);
+	} else 
+		$("#field2699512").val("-");
 }
 
 function showSettlementType3(address) {
-  $("#field2699513").val(address.settlement_type);
+	if (address.settlement_type) {
+		$("#field2699513").val(address.settlement_type);
+	} else 
+		$("#field2699513").val("-");
 }
 
 function showStreet3(address) {
-  $("#field2699514").val(address.street);
+	if (address.street) {
+		$("#field2699514").val(address.street);
+	} else 
+		$("#field2699514").val("-");
 }
 
 function showStreetType3(address) {
-  $("#field2699515").val(address.street_type);
+	if (address.street_type) {
+		$("#field2699515").val(address.street_type);
+	} else 
+		$("#field2699515").val("-");
 }
 
 function showHouse3(address) {
-  $("#field2699516").val(address.house);
+	if (address.house) {
+		$("#field2699516").val(address.house);
+	} else 
+		$("#field2699516").val("-");
 }
 
 function showHouseType3(address) {
-  $("#field2699517").val(address.house_type);
+	if (address.house_type) {
+		$("#field2699517").val(address.house_type);
+	} else 
+		$("#field2699517").val("-");
 }
 
 function showHN3(address) {
-  $("#field2699518").val(address.block);
+	if (address.block) {
+		$("#field2699518").val(address.block);
+	} else 
+		$("#field2699518").val("-");
 }
 
 function showHNType3(address) {
-  $("#field2699519").val(address.block_type);
+	if (address.block_type) {
+		$("#field2699519").val(address.block_type);
+	} else 
+		$("#field2699519").val("-");
 }
 
 function showFlat3(address) {
-  $("#field2699522").val(address.flat);
+	if (address.flat) {
+		$("#field2699522").val(address.flat);
+	} else 
+		$("#field2699522").val("-");
 }
 function showRoom3(address) {
-  $("#field2699520").val(address.room);
+	if (address.room) {
+		$("#field2699520").val(address.room);
+	} else 
+		$("#field2699520").val("-");
 }
 
 $("#field2687985").suggestions({
@@ -307,6 +440,9 @@ $("#field2687985").suggestions({
 		  $('#error3').empty();
 		}
   },  
+	onSearchError: function() {
+		$("#error3").text("Подсказки не работают"); 
+	},
   onSelectNothing: function() {
     $('#error3').addClass('error2');
     $('#error3').html('<span>Выберите адрес из списка</span>');
