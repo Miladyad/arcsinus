@@ -125,3 +125,26 @@ $("#field2682865").suggestions({
 		$('#field2682865').addClass('error2');
 	}
 });
+
+function showCompanySuggestion(suggestion) {
+  console.log(suggestion);
+  var data = suggestion.data;
+  if (!data)
+    return;
+
+  if (data.name) {
+    $("#field2699928").val(data.name.full_with_opf || "");
+  }
+  
+  $("#field2699927").val(data.ogrn);
+  $("#field2687954").val(data.inn);
+}
+
+// По ИНН ищем ОГРН и название организации полное в скрытые поля
+$("#field2687954").suggestions({
+  token: token,
+  type: "PARTY",
+  count: 5,
+  minChars: 10,
+  onSelect: showCompanySuggestion
+});
