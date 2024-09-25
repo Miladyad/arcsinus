@@ -168,7 +168,7 @@ function showHouse2(address) {
 }
 
 function showHouseType2(address) {
-  $("#field2699449").val(address.house_type);
+  $("#field2699448").val(address.house_type);
 }
 
 function showHN2(address) {
