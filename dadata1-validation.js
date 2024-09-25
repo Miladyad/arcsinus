@@ -53,3 +53,40 @@ function showSettlement(address) {
 	} else 
 	$("#field2699219").val("-");
 }
+
+function showStreet(address) {
+	if (address.street) {
+		$("#field2699220").val(
+			join([address.street_type, address.street], " ")
+		);
+	} else 
+    $("#field2699220").val("-");
+}
+
+function showHouse(address) {
+	if (address.house) {
+		$("#field2699221").val(address.house);
+	} else 
+    $("#field2699221").val("-");
+}
+
+function showHN(address) {
+	if (address.block) {
+		$("#field2699222").val(address.block);		
+	} else 
+    $("#field2699222").val("-");
+}
+
+function showFlat(address) {
+	if (address.flat) {
+		$("#field2699223").val(address.flat);
+	} else 
+    $("#field2699223").val("-");
+}
+
+function showRoom(address) {
+	if (address.room) {
+		$("#field2699319").val(address.room);
+	} else 
+    $("#field2699319").val("-");
+}
