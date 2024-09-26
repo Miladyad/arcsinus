@@ -1,7 +1,3 @@
-if (!$('#error').length) {    
-   $('#field2682865').after('<div id="error"></div>'); 
-};
-
 $("#field2682865").on( "click", function( event ) {
 	event.preventDefault();
     $(this).removeClass('error'); 
@@ -108,10 +104,9 @@ $("#field2682865").suggestions({
 		showHouse(address);
 		showHN(address);
 		showFlat(address);
-		showRoom(address);
-		$('#error').removeClass('error2');
+		showRoom(address);		
 		if ($('#error').length) {
-		  $('#error').empty();
+			$('#error').remove();
 		}
 	},
 	  
@@ -120,8 +115,10 @@ $("#field2682865").suggestions({
 	},
   
 	onSelectNothing: function() {
-		$('#error').addClass('error');
-		$('#error').html('<span>Выберите адрес из списка</span>');
+		if (!$('#error').length) {
+		   $('#field2682865').after('<div id="error" class="error"></div>'); 
+		   $('#error').html('<span>Выберите адрес из списка</span>');
+		};
 		$('#field2682865').addClass('error');
 	}
 });
