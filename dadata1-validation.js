@@ -124,6 +124,8 @@ $("#field2682865").suggestions({
 			$('#error').addClass('error2');
 			$('#error').html('<span>Выберите адрес из списка</span>');
 			$('#field2682865').addClass('error2');
+		} else {
+			$('#error').empty();
 		}
 	}
 });
