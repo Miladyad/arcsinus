@@ -164,10 +164,13 @@ $("#field2687983").suggestions({
 		$("#error1").text("Подсказки не работают"); 
 	},
 	onSelectNothing: function() {
-		$('#error1').addClass('error2');
-		$('#error1').html('<span>Выберите адрес из списка</span>');
-		$('#field2687983').addClass('error2');
-		$('.submit').disabled = true;
+		if ($('#field2687983').val()) {
+			$('#error1').addClass('error2');
+			$('#error1').html('<span>Выберите адрес из списка</span>');
+			$('#field2682865').addClass('error2');
+		} else {
+			$('#error1').empty();
+		}
 	}
 });
 
@@ -305,10 +308,13 @@ $("#field2687984").suggestions({
 		$("#error2").text("Подсказки не работают"); 
 	},
   onSelectNothing: function() {
-    $('#error2').addClass('error2');
-    $('#error2').html('<span>Выберите адрес из списка</span>');
-    $('#field2687984').addClass('error2');
-	$('.submit').disabled = true;
+	  if ($('#field2687984').val()) {
+			$('#error2').addClass('error2');
+			$('#error2').html('<span>Выберите адрес из списка</span>');
+			$('#field2687984').addClass('error2');
+		} else {
+			$('#error2').empty();
+		}
   }
 });
 
@@ -444,8 +450,12 @@ $("#field2687985").suggestions({
 		$("#error3").text("Подсказки не работают"); 
 	},
   onSelectNothing: function() {
-    $('#error3').addClass('error2');
-    $('#error3').html('<span>Выберите адрес из списка</span>');
-    $('#field2687985').addClass('error2');
+	if ($('#field2687985').val()) {
+		$('#error3').addClass('error2');
+		$('#error3').html('<span>Выберите адрес из списка</span>');
+		$('#field2687985').addClass('error2');
+	} else {
+		$('#error3').empty();
+	}
   }
 });
