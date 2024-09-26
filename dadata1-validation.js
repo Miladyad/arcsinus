@@ -4,7 +4,7 @@ if (!$('#error').length) {
 
 $("#field2682865").on( "click", function( event ) {
 	event.preventDefault();
-    $(this).removeClass('error2'); 
+    $(this).removeClass('error'); 
 });
 
 var token = "9a69485053e79fdc1c87703b5489154cccca7d70";
@@ -120,9 +120,9 @@ $("#field2682865").suggestions({
 	},
   
 	onSelectNothing: function() {
-		$('#error').addClass('error2');
+		$('#error').addClass('error');
 		$('#error').html('<span>Выберите адрес из списка</span>');
-		$('#field2682865').addClass('error2');
+		$('#field2682865').addClass('error');
 	}
 });
 
