@@ -120,7 +120,7 @@ $("#field2682865").suggestions({
 	},
   
 	onSelectNothing: function() {
-		if ($('#field2682865').value.trim().length > 0) {
+		if ($('#field2682865').value.length > 0) {
 			$('#error').addClass('error2');
 			$('#error').html('<span>Выберите адрес из списка</span>');
 			$('#field2682865').addClass('error2');
