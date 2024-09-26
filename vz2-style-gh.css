@@ -1,0 +1,613 @@
+@font-face {
+  font-family: 'Vela Sans';
+  font-weight: 400;
+  src: url('https://miladyad.github.io/arcsinus/VelaSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Vela Sans';
+  font-weight: 700;
+  src: url('https://miladyad.github.io/arcsinus/VelaSans-Bold.ttf') format('truetype');
+}
+body, * {
+  font-family: Vela Sans, Helvetica !important;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.user_formish, .user_formish input.text, .user_formish textarea, .user_formish select, .user_formish .type-file .unit .file-fd, .user_formish .type-autocomplete .select2-container--default.select2-container--focus .select2-selection--multiple, .user_formish input.text:focus, .user_formish textarea:focus, .user_formish select:focus, .user_formish label.label, .user_formish .error label.error, .user_formish .shift .submit, .user_formish .shift .submit:hover, .user_formish .shift .description p a, .user_formish .shift .description p, .user_formish div.shift.error .error, .user_formish #error, .user_formish .checkbox label, .user_formish .radio label, .user_formish h3 {
+	font-family: Vela Sans, Helvetica !important;
+}
+
+.user_formish .shift {padding: 0;}
+.user_formish .shift.type-html {margin: 0;}
+.shift.type-radio, .shift.type-select, .shift.type-checkbox, .shift.type-text, .shift.type-html, .shift.type-file, .shift.type-email {max-width: 522px;}
+.shift.type-phone {max-width: 248px;}
+
+.user_formish label.label {
+	color: #151A30;
+	font-weight: 500 !important;
+	margin: 0 !important;
+}
+
+.user_formish input.text, .user_formish input.text:focus {
+	border-radius: 8px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 130%;
+	color: #151A30;
+}
+.user_formish input::placeholder, .user_formish select {
+    color: #5A667E !important;
+	opacity: 1;
+}
+.user_formish label.label {
+	position: relative;
+}
+.user_formish label.label:after {
+	content: "Необязательно";
+	display: inline-block;
+	right: 0;
+	top: 3px;
+	color: #5A667E;
+	font-family: Vela Sans, Helvetica;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 130%;
+	position: absolute;
+}
+.user_formish label.label.required:after, .user_formish .type-checkbox label.label:after {
+	display: none;
+}
+.user_formish label.label span.required {
+    display: none;
+}
+
+.user_formish .shift .submit, .user_formish .shift .submit:hover {
+	border-radius: 8px;
+	padding: 12px 16px;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 700;
+    transition: all .3s ease-in-out;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	width: 198px;
+	margin: 0;
+}
+.user_formish .shift .submit:hover {
+    background-color: #9AC1F0;
+}
+/* separator & select */
+.user_formish .type-separator {
+	margin: 48px 0;
+    border-bottom: 1px solid #E1E5EB;
+}
+.user_formish .type-separator#i2695287 {
+	margin: 48px 0 36px 0;
+}
+.user_formish .type-separator hr {
+	display: none;
+}
+.user_formish select, .user_formish select:focus {
+	font-size: 14px;
+    line-height: 18px;
+	border-radius: 8px;
+	padding: 9px 8px 9px 12px;
+	-webkit-appearance: none;
+	 -moz-appearance: none;
+	 appearance: none;
+	 background-image: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="Navigation / 24 / Arrow down"><path id="Mask" fill-rule="evenodd" clip-rule="evenodd" d="M7.00073 10.0007C7.00073 9.74474 7.09873 9.48874 7.29373 9.29374C7.68473 8.90274 8.31673 8.90274 8.70773 9.29374L12.0127 12.5987L15.3057 9.41874C15.7037 9.03574 16.3367 9.04674 16.7197 9.44374C17.1027 9.84174 17.0917 10.4747 16.6957 10.8577L12.6957 14.7197C12.3027 15.0987 11.6797 15.0937 11.2937 14.7077L7.29373 10.7077C7.09873 10.5127 7.00073 10.2567 7.00073 10.0007Z" fill="%2378849C"/></g></svg>');
+	 background-repeat: no-repeat;
+	 background-position: top 50% right 8px;
+	 cursor: pointer;
+	 transition: background-image 0.2s ease-in-out;
+}
+.user_formish select.active {
+	 background-image: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.00073 13.9993C7.00073 14.2553 7.09873 14.5113 7.29373 14.7063C7.68473 15.0973 8.31673 15.0973 8.70773 14.7063L12.0127 11.4013L15.3057 14.5813C15.7037 14.9643 16.3367 14.9533 16.7197 14.5563C17.1027 14.1583 17.0917 13.5253 16.6957 13.1423L12.6957 9.28026C12.3027 8.90126 11.6797 8.90626 11.2937 9.29226L7.29373 13.2923C7.09873 13.4873 7.00073 13.7433 7.00073 13.9993Z" fill="%2378849C"/></svg>');
+}
+.user_formish input.text:focus, .user_formish select.active {
+	border: 1px solid #1982FF;
+}
+.user_formish select option {
+	color: rgba(0, 0, 0, 0.87);
+}
+/* custom checkbox */
+
+.user_formish .shift .checkbox .unit, .user_formish .shift .radio .unit {
+	margin: 0;
+}
+
+.user_formish .checkbox input, .user_formish .radio input {
+  position: absolute !important;
+  z-index: -1;
+  opacity: 0;
+}
+
+.user_formish .checkbox label, .user_formish .radio input+label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  padding-left: 0;
+}
+
+.user_formish .checkbox label::before, .user_formish .radio input+label::before {
+	content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    flex-grow: 0;    
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+.user_formish .checkbox label::before {
+	border: 2px solid #78849C;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.user_formish .checkbox input:checked+label::before {
+  border-color: #1982FF;
+  background-color: #1982FF;
+  background-image: url('data:image/svg+xml,<svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 9.4L0 5.4L1.4 4L4 6.6L10.6 0L12 1.4L4 9.4Z" fill="white"/></svg>');
+    background-size: auto;
+}
+
+/* custom radio */
+
+.user_formish .radio input+label::before {    
+    border: 2px solid #78849C;
+    border-radius: 22px;
+    margin-right: 9px;   
+}
+
+.user_formish .radio input:checked+label::before {
+    border-color: #ffffff;
+    background-color: #ffffff;
+    background-image: url('data:image/svg+xml,<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17C13.4183 17 17 13.4183 17 9Z" stroke="%231982FF" stroke-width="2"/><path d="M13 9C13 6.79086 11.2091 5 9 5C6.79086 5 5 6.79086 5 9C5 11.2091 6.79086 13 9 13C11.2091 13 13 11.2091 13 9Z" fill="%231982FF"/></svg>');
+    background-size: cover;
+    border: none;
+    width: 18px;
+    height: 18px;
+}
+
+.user_formish .shift .description {
+	margin: 0 !important;
+}
+.user_formish .shift .description p, .user_formish .shift .description p a {
+	margin: 0;
+	font-size: 10px;
+	line-height: 160%;
+}
+.user_formish .shift .description h2 {
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 130%;
+	margin-top: 0;
+	margin-bottom: 36px;
+	color: #151A30;
+	position: relative;
+}
+.user_formish .shift .description h2.docs-title, .user_formish .shift .description p.docs-description {
+	display: inline-block;
+}
+.user_formish h3 {
+	font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    color: #151A30;
+    background: none;
+    padding: 0;
+    margin: 12px 0 24px 0;
+    border: none;
+}
+.block-contacts {
+	max-width: 522px;
+}
+.user_formish .shift .description h2#title-contacts {
+	cursor: pointer;
+}
+.user_formish .shift .description h2.button-see-less {
+	margin-bottom: 0px;
+}
+.user_formish .shift .description h2.button-see-more:after, .user_formish .shift .description h2.button-see-less:after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.33561 18.6658C9.33561 19.0072 9.46627 19.3485 9.72627 19.6085C10.2476 20.1298 11.0903 20.1298 11.6116 19.6085L16.0183 15.2018L20.4089 19.4418C20.9396 19.9525 21.7836 19.9378 22.2943 19.4085C22.8049 18.8778 22.7903 18.0338 22.2623 17.5232L16.9289 12.3738C16.4049 11.8685 15.5743 11.8752 15.0596 12.3898L9.72627 17.7232C9.46627 17.9832 9.33561 18.3245 9.33561 18.6658Z" fill="%23151A30"/></svg>');
+	width: 32px;
+	height: 32px; 
+	right: -8px;
+	bottom: 3px;
+}
+.user_formish .shift .description h2.button-see-less:after {		
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.33561 13.3342C9.33561 12.9928 9.46627 12.6515 9.72627 12.3915C10.2476 11.8702 11.0903 11.8702 11.6116 12.3915L16.0183 16.7982L20.4089 12.5582C20.9396 12.0475 21.7836 12.0622 22.2943 12.5915C22.8049 13.1222 22.7903 13.9662 22.2623 14.4768L16.9289 19.6262C16.4049 20.1315 15.5743 20.1248 15.0596 19.6102L9.72627 14.2768C9.46627 14.0168 9.33561 13.6755 9.33561 13.3342Z" fill="%23151A30"/></svg>');
+}
+.user_formish .shift .description p.docs-description {
+    margin-left: 28px;
+    color: #5A667E;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+}
+
+
+/* errors */
+.user_formish div.shift.error {
+    margin: 0 0px 24px 0px;
+    padding: 0;
+}
+.user_formish div.shift.error label.error{
+    margin: 0;
+    padding-bottom: 0;
+}
+.user_formish div.shift.error div.error {
+	margin-top: 7px;
+	color: #FF3D71;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.user_formish div.shift.error input.text, .user_formish input.text.error, .user_formish input.text.error2, .user_formish div.shift.error select {
+	border: 1px solid #ff3d71;
+}
+
+.user_formish input.text.error {
+	margin-top: 0 !important;
+}
+
+.user_formish #error1, .user_formish #error2, .user_formish #error3 {
+	margin-top: 7px;
+    color: #ff3d71;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+/* file upload */
+.user_formish .type-file label.label {
+	padding-right: 115px;
+}
+.user_formish .file-box__dragndrop {
+    padding: 18px 24px;
+    border-radius: 8px;
+    background: #E8F2FF;
+	display: flex;
+    align-items: center;
+	justify-content: space-between;
+	border: 1px dashed #C5D1E2;
+}
+.user_formish .error .file-box__dragndrop {
+	border: 1px dashed #FF3D71;
+}
+.user_formish .file-box__button {
+    border: none;
+    border-radius: 8px;
+    box-shadow: none;
+    padding: 10px 16px;
+    margin: 0;
+    cursor: pointer;
+    display: inline-block;
+    order: 2;
+    background: #fff;
+    color: #1982FF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 115%;
+}
+.user_formish .file-box__text {
+    display: inline-block;
+    color: #5A667E;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 130%;
+}
+.user_formish .file-box.is-active .file-box__dragndrop, .user_formish .file-box:hover .file-box__button {
+    background: #fff;
+}
+.user_formish .file-list {
+	box-sizing: border-box;
+	display: block;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    left: 10px;
+    width: 522px;
+	padding: 18px 24px;
+    border-radius: 8px;
+    background: #E8F2FF;
+	border: 1px solid #e8f2ff;
+}
+.user_formish .file-list__row {
+    position: relative;
+    margin: 0;
+	background: #E8F2FF;
+	border: none;
+	display: flex;
+	justify-content: space-between;
+	max-width: 100%;
+	align-items: center;
+}
+.user_formish .file-list__row-name {
+    padding: 10px 28px 10px 28px;
+    position: relative;
+    height: 16px;
+	max-width: 305px;
+    overflow: hidden;
+}
+.user_formish .file-list__row-name::before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	background: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.444 20H6.555C6.249 20 6 19.776 6 19.5V4.5C6 4.224 6.249 4 6.555 4H11V8.15C11 9.722 12.217 11 13.714 11H18V19.5C18 19.776 17.75 20 17.444 20ZM17.649 9H13.714C13.32 9 13 8.619 13 8.15V4H13.112L17.649 9ZM19.74 8.328L14.296 2.328C14.107 2.119 13.838 2 13.555 2H6.555C5.146 2 4 3.122 4 4.5V19.5C4 20.878 5.146 22 6.555 22H17.444C18.853 22 20 20.878 20 19.5V9C20 8.751 19.907 8.512 19.74 8.328Z" fill="%2378849C"/><mask id="mask0_2671_1279" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="4" y="2" width="16" height="20"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.444 20H6.555C6.249 20 6 19.776 6 19.5V4.5C6 4.224 6.249 4 6.555 4H11V8.15C11 9.722 12.217 11 13.714 11H18V19.5C18 19.776 17.75 20 17.444 20ZM17.649 9H13.714C13.32 9 13 8.619 13 8.15V4H13.112L17.649 9ZM19.74 8.328L14.296 2.328C14.107 2.119 13.838 2 13.555 2H6.555C5.146 2 4 3.122 4 4.5V19.5C4 20.878 5.146 22 6.555 22H17.444C18.853 22 20 20.878 20 19.5V9C20 8.751 19.907 8.512 19.74 8.328Z" fill="white"/></mask><g mask="url(%23mask0_2671_1279)"><rect width="24" height="24" fill="%2378849C"/></g></svg>');
+	width: 24px;
+    height: 24px;
+    left: 0;
+    top: 8px;
+}
+.user_formish .file-list__row-name:after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="8" fill="%2304D68F"/><path fill-rule="evenodd" clip-rule="evenodd" d="M6.71725 11.7C6.55165 11.7 6.39325 11.6316 6.27985 11.511L3.36205 8.40356C3.13465 8.16236 3.14725 7.78256 3.38845 7.55575C3.63025 7.32895 4.01005 7.34095 4.23625 7.58215L6.71125 10.2168L11.756 4.69552C11.9804 4.45012 12.3596 4.43392 12.6044 4.65712C12.8486 4.88033 12.8654 5.26013 12.6422 5.50433L7.16005 11.5044C7.04785 11.628 6.88825 11.6988 6.72145 11.7H6.71725Z" fill="white"/></svg>');
+	width: 16px;
+    height: 16px;
+    top: 12px;
+	background-color: #e8f2ff;
+    right: 0;
+	padding-left: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.file-list__row .remove {
+	border: none;
+    border-radius: 8px;
+    box-shadow: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    display: inline-block;
+    background: #fff;
+    color: #1982FF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 115%;
+    width: auto;
+    margin-top: 0;
+    position: relative;
+    top: 0px;
+    right: 0;
+    height: 16px;
+}
+.user_formish .file-list__row .remove:before {display: none;}
+.user_formish .file-list__row .remove:after {
+    position: relative;
+    top: 0;
+    right: 0;
+    content: 'Заменить';
+    width: 1px;
+    height: 18px;
+    margin-top: 0;
+    background: #fff;
+	-webkit-transform: none;
+    transform: none;
+}
+.user_formish div.shift.type-file.error div.error {
+	color: #fff;
+}
+.user_formish .type-file.error div.error:before {
+	content: "Загрузите файл";
+	display: block;
+    color: #ff3d71;
+    font-size: 12px;
+    line-height: 18px;
+	position: absolute;
+}
+
+/* DaData wrapper */
+.user_formish .suggestions-suggestions {
+    border-radius: 8px;
+    border: 1px solid var(--Bg-Separator, #E1E5EB);
+	margin-top: 18px !important;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(31, 0, 223, 0.08) 0px 2px 4px 0px;
+}
+.user_formish .suggestions-suggestion {
+	font-family: "Vela Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px;
+	padding:11px 0 11px 12px;
+	color: #151A30;
+}
+.user_formish .suggestions-suggestion:hover {
+	background: #E8F2FF;
+	color: #1982FF;
+}
+.user_formish .suggestions-hint{padding:5px 11px;color:#5A667E;}
+.suggestions-suggestions::-webkit-scrollbar-track{
+	background-color: #ffffff;
+}
+.suggestions-suggestions::-webkit-scrollbar {
+	-webkit-appearance: none;
+  width: 20px;
+}
+
+.suggestions-suggestions::-webkit-scrollbar:horizontal {
+	height: 4px;
+}
+
+.suggestions-suggestions::-webkit-scrollbar-thumb {
+	border-radius: 40px;
+  border: 7px solid white;
+	background-color: #78849C;
+}
+
+@media (max-width: 539px) {
+    .i2682854 > div:nth-child(1n) {
+		flex: 0 0 100%;
+		max-width: 400px;
+	}
+	.user_formish .shift .submit, .user_formish div.shift.type-html .unit {
+		max-width: 400px;
+	}
+}
+
+@media (max-width: 768px) { 
+	.user_formish .shift .description h2 {
+		margin-bottom: 24px;
+	}
+	.user_formish .shift .description h2.docs-title {
+		margin-bottom: 12px;
+	}	
+	.user_formish .shift .description p.docs-description {
+		margin-left: 0;
+		margin-bottom: 24px;		
+	}
+	.user_formish h3 {
+		margin: 8px 0 16px;
+	}
+	.user_formish .type-separator, .user_formish .type-separator#i2695287 {
+		margin: 32px 0;
+	}
+	.shift.type-phone {
+		max-width: 100%;
+	}
+	.user_formish .file-box__text {
+		display: none;
+	}
+	.user_formish .file-box__dragndrop {
+		justify-content: center;
+		padding: 10px 16px;
+		border: 1px solid #e8f2ff;
+	}
+	.user_formish .file-box__button {
+		background: transparent;
+		padding: 0;
+	}
+	.user_formish .file-box.is-active .file-box__dragndrop, .user_formish .file-box:hover .file-box__button {
+		background: #E8F2FF;
+	}
+	.user_formish .type-file label.label {
+		padding-right: 0;
+	}
+	.user_formish .type-file label.label:after {
+		position: relative;
+		display: block;
+		margin-top: 4px;
+	}
+	.user_formish .unit {
+		margin-top: 12px;
+	}
+	.user_formish .file-list {
+		background: #fff;
+		border: none;
+		padding: 0;
+		position: relative;
+		top: -38px;
+		width: 100%;
+		border-radius: 0;
+		height: 38px;
+        overflow: visible;
+	}
+	.user_formish .file-list__row {
+		background: transparent;
+		display: block;
+		border-radius: 0;
+	}
+	.user_formish .file-list__row .remove {
+		background: #E8F2FF;
+		color: #1982ff;
+		text-align: center;
+		border-radius: 8px;
+		width: auto;
+	}
+	.user_formish .file-list__row-name {
+		margin-bottom: 4px;
+		width: fit-content;
+	}
+	.user_formish .file-list__row .remove:after {
+		background: transparent;
+	}
+}
+
+/* sending form */
+.overlay {
+	opacity: 0;
+}
+.progress {
+    background: transparent;
+	position: relative;
+	margin-top: 30px;
+}
+
+.progress .bar {
+    text-shadow: none;
+	background-color: #9AC1F0;
+    color: #fff;
+    border-radius: 8px;
+    font-family: "Vela Sans" !important;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 130%;
+    transition: all .3s ease-in-out;    
+    padding: 13px 16px;
+    min-height: auto;
+    width: auto;
+	height: 48px;
+	max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* loader */
+.progress {
+    background: transparent;
+	position: relative;
+	bottom: 48px;
+}
+
+.progress .bar {
+    text-shadow: none;
+	background: #0365D9;
+    color: #0365D9;
+    border-radius: 8px;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 130%;
+    transition: all .3s ease-in-out;    
+    padding: 13px 16px;
+    min-height: auto;
+    width: auto;
+	height: 48px;
+    box-sizing: border-box;
+	animation: none;
+	position: relative;
+}
+.progress .bar:before {
+	animation: 5s linear 0s normal none infinite rotation;
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7.5 19.7942C5.95845 18.9042 4.71543 17.5771 3.92815 15.9806C3.14086 14.3841 2.84466 12.5901 3.077 10.8253C3.30934 9.06046 4.05979 7.40419 5.23344 6.06589C6.4071 4.72759 7.95125 3.76737 9.67063 3.30667C11.39 2.84596 13.2074 2.90546 14.893 3.47763C16.5785 4.0498 18.0566 5.10895 19.1402 6.52115C20.2238 7.93334 20.8643 9.63515 20.9807 11.4114C21.0971 13.1876 20.6842 14.9584 19.7942 16.5" stroke="white" stroke-width="2"/></svg>');
+	background-repeat: no-repeat;
+	content: "";
+	width: 24px;
+	height: 24px;
+	display: block;
+	position: absolute;
+	left: 50%;
+}
+
+@keyframes rotation {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}
+}
+@media (max-width: 370px) {
+    .progress .bar {
+        height: 53px;
+    }
+}
