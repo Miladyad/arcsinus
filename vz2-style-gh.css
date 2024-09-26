@@ -540,30 +540,6 @@ body, * {
 .overlay {
 	opacity: 0;
 }
-.progress {
-    background: transparent;
-	position: relative;
-	margin-top: 30px;
-}
-
-.progress .bar {
-    text-shadow: none;
-	background-color: #9AC1F0;
-    color: #fff;
-    border-radius: 8px;
-    font-family: "Vela Sans" !important;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 130%;
-    transition: all .3s ease-in-out;    
-    padding: 13px 16px;
-    min-height: auto;
-    width: auto;
-	height: 48px;
-	max-width: 400px;
-    box-sizing: border-box;
-}
 
 /* loader */
 .progress {
@@ -577,14 +553,11 @@ body, * {
 	background: #0365D9;
     color: #0365D9;
     border-radius: 8px;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 130%;
+	font-size: 6px;	
     transition: all .3s ease-in-out;    
     padding: 13px 16px;
     min-height: auto;
-    width: auto;
+    width: 198px;
 	height: 48px;
     box-sizing: border-box;
 	animation: none;
@@ -599,7 +572,7 @@ body, * {
 	height: 24px;
 	display: block;
 	position: absolute;
-	left: 50%;
+	left: 92px;
 }
 
 @keyframes rotation {
