@@ -412,8 +412,12 @@ body, * {
 	position: absolute;
 }*/
 
-.user_formish .type-file.error .file-list {
+.user_formish div.shift.type-file.error .file-list__row-name:after {
 	display: none;
+}
+
+.user_formish .type-file.error .file-list {
+	border: 1px dashed #FF3D71;
 }
 
 /* DaData wrapper */
