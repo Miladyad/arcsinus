@@ -392,7 +392,7 @@ body, * {
     position: relative;
     top: 0;
     right: 0;
-    content: 'Заменить';
+    content: 'Удалить';
     width: 1px;
     height: 18px;
     margin-top: 0;
@@ -540,6 +540,9 @@ body, * {
 	}
 	.user_formish .file-list__row .remove:after {
 		background: transparent;
+	}
+	.user_formish .file-list__row-name:after {
+		background-color: transparent;
 	}
 }
 
