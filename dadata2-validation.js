@@ -480,7 +480,6 @@ const prepareFileHandler = (nameId, extId, base64Id) => (evt) => {
         reader.onload = (readerEvt) => {
             const binaryString = readerEvt.target.result
             $(base64Id).val(btoa(binaryString))
-			console.log(btoa(binaryString));
         }
         reader.readAsBinaryString(file)
     }
@@ -493,9 +492,8 @@ const addFileUploadListener = (elementId, inputIds) => {
 }
 
 if (window.File && window.FileReader && window.FileList && window.Blob) {
-	console.log('block exists');
     addFileUploadListener('field2695274', ["#field2702238","#field2702240","#field2702241"]) //ЮЛ Карточка
-    addFileUploadListener('field2687993', ["#field2706011","#field2706012","#field2706014"]) // Устав
+    /*addFileUploadListener('field2687993', ["#field2706011","#field2706012","#field2706014"]) // Устав
 	addFileUploadListener('field2687994', ["#field2706019","#field2706021","#field2706023"]) // Свидетельство о государственной регистрации
 	addFileUploadListener('field2687995', ["#field2706026","#field2706027","#field2706028"]) // Решение о создании
 	addFileUploadListener('field2687996', ["#field2706030","#field2706031","#field2706032"]) // Свидетельство о постановке на учёт в налоговом органе
@@ -515,7 +513,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 	addFileUploadListener('field2701272', ["#field2706311","#field2706315","#field2706316"]) // Справка об отсутствии задолженности
 	addFileUploadListener('field2695282', ["#field2706319","#field2706320","#field2706321"]) // Документ, подтверждающий налогообложение
 	addFileUploadListener('field2696821', ["#field2706325","#field2706326","#field2706327"]) // Налоговые декларации НДС
-	addFileUploadListener('field2695283', ["#field2706331","#field2706333","#field2706334"]) // Документ, подтверждающий наличие штата сотрудников
+	addFileUploadListener('field2695283', ["#field2706331","#field2706333","#field2706334"]) // Документ, подтверждающий наличие штата сотрудников*/
 } else {
       console.log('The File APIs are not fully supported in this browser.');
 }
