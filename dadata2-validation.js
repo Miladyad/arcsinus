@@ -490,7 +490,8 @@ const prepareFileHandler = (nameId, extId, base64Id) => (evt) => {
 const addFileUploadListener = (elementId, inputIds) => {
 	console.log(elementId);
     document.getElementById(elementId)
-      .addEventListener('change',  prepareFileHandler(...inputIds), false)
+      .addEventListener('change',  prepareFileHandler(...inputIds), false);
+	return;
 }
 
 if (window.File && window.FileReader && window.FileList && window.Blob) {
