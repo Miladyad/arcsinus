@@ -461,7 +461,7 @@ $("#field2687985").suggestions({
 });
 
 // Кодирование в base64 файлов и получение информации о файлах
-/*
+
 const prepareFileHandler = (nameId, extId, base64Id) => (evt) => {
 	const files = evt.target.files
 	const file = files[0]
@@ -482,7 +482,9 @@ const prepareFileHandler = (nameId, extId, base64Id) => (evt) => {
             $(base64Id).val(btoa(binaryString))
         }
         reader.readAsBinaryString(file)
+		return;
     }
+	return;
 }
 
 const addFileUploadListener = (elementId, inputIds) => {
@@ -513,9 +515,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 	addFileUploadListener('field2701272', ["#field2706311","#field2706315","#field2706316"]) // Справка об отсутствии задолженности
 	addFileUploadListener('field2695282', ["#field2706319","#field2706320","#field2706321"]) // Документ, подтверждающий налогообложение
 	addFileUploadListener('field2696821', ["#field2706325","#field2706326","#field2706327"]) // Налоговые декларации НДС
-	addFileUploadListener('field2695283', ["#field2706331","#field2706333","#field2706334"]) // Документ, подтверждающий наличие штата сотрудников
+	addFileUploadListener('field2695283', ["#field2706331","#field2706333","#field2706334"]) // Документ, подтверждающий наличие штата сотрудников*/
 } else {
       console.log('The File APIs are not fully supported in this browser.');
 }
-
-*/
