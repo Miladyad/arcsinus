@@ -516,6 +516,9 @@ body, * {
 	.user_formish .unit {
 		margin-top: 12px;
 	}
+	.user_formish .type-file .unit {
+		margin-top: 8px;
+	}
 	.user_formish .file-list {
 		background: #fff;
 		border: none;
