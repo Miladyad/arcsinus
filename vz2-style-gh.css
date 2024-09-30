@@ -476,6 +476,7 @@ body, * {
 	}
 	.user_formish .shift .description h2.docs-title {
 		margin-bottom: 12px;
+		display: block;
 	}	
 	.user_formish .shift .description p.docs-description {
 		margin-left: 0;
@@ -520,10 +521,10 @@ body, * {
 		border: none;
 		padding: 0;
 		position: relative;
-		top: -38px;
+		top: -39px;
 		width: 100%;
 		border-radius: 0;
-		height: 38px;
+		height: 39px;
         overflow: visible;
 	}
 	.user_formish .file-list__row {
@@ -536,7 +537,9 @@ body, * {
 		color: #1982ff;
 		text-align: center;
 		border-radius: 8px;
-		width: auto;
+		width: 100%;
+		box-sizing: border-box;
+        height: 38px;
 	}
 	.user_formish .file-list__row-name {
 		margin-bottom: 4px;
