@@ -495,8 +495,8 @@ const addFileUploadListener = (elementId, inputIds) => {
 }
 
 if (window.File && window.FileReader && window.FileList && window.Blob) {
-    addFileUploadListener('field2695274', ["#field2702238","#field2702240","#field2702241"]) //ЮЛ Карточка
-    /*addFileUploadListener('field2687993', ["#field2706011","#field2706012","#field2706014"]) // Устав
+    /*addFileUploadListener('field2695274', ["#field2702238","#field2702240","#field2702241"]) //ЮЛ Карточка
+    addFileUploadListener('field2687993', ["#field2706011","#field2706012","#field2706014"]) // Устав
 	addFileUploadListener('field2687994', ["#field2706019","#field2706021","#field2706023"]) // Свидетельство о государственной регистрации
 	addFileUploadListener('field2687995', ["#field2706026","#field2706027","#field2706028"]) // Решение о создании
 	addFileUploadListener('field2687996', ["#field2706030","#field2706031","#field2706032"]) // Свидетельство о постановке на учёт в налоговом органе
@@ -507,9 +507,9 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 	addFileUploadListener('field2688001', ["#field2706215","#field2706216","#field2706217"]) // Бухгалтерский баланс
 	addFileUploadListener('field2688003', ["#field2706226","#field2706227","#field2706228"]) // Налоговые декларации
 	addFileUploadListener('field2688002', ["#field2706230","#field2706231","#field2706232"]) // Договор аренды
-	
+	*/
 	addFileUploadListener('field2701270', ["#field2706277","#field2706278","#field2706279"]) //ФЛ Карточка
-	addFileUploadListener('field2695275', ["#field2706281","#field2706282","#field2706283"]) // Копия паспорта
+	/*addFileUploadListener('field2695275', ["#field2706281","#field2706282","#field2706283"]) // Копия паспорта
 	addFileUploadListener('field2695276', ["#field2706286","#field2706288","#field2706290"]) // Свидетельство о государственной регистрации
 	addFileUploadListener('field2701271', ["#field2706293","#field2706294","#field2706300"]) // Свидетельство о постановке на учёт в налоговом органе
 	addFileUploadListener('field2695277', ["#field2706302","#field2706305","#field2706309"]) // Доверенность, если подписант не ИП
