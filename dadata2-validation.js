@@ -463,11 +463,11 @@ $("#field2687985").suggestions({
 // Кодирование в base64 файлов и получение информации о файлах
 
 const prepareFileHandler = (nameId, extId, base64Id) => (evt) => {
-    const files = evt.target.files
-    const file = files[0]
+	const files = evt.target.files
+	const file = files[0]
 
-    // show filename and extention
-    const [filename, fileext] = file.name.split('.')
+	// show filename and extention
+	const [filename, fileext] = file.name.split('.')
 
     $(nameId).val(filename)
     $(extId).val(fileext)
@@ -493,6 +493,7 @@ const addFileUploadListener = (elementId, inputIds) => {
 }
 
 if (window.File && window.FileReader && window.FileList && window.Blob) {
+	console.log('block exists');
     addFileUploadListener('field2695274', ["#field2702238","#field2702240","#field2702241"]) //ЮЛ Карточка
     addFileUploadListener('field2687993', ["#field2706011","#field2706012","#field2706014"]) // Устав
 	addFileUploadListener('field2687994', ["#field2706019","#field2706021","#field2706023"]) // Свидетельство о государственной регистрации
