@@ -474,6 +474,7 @@ const prepareFileHandler = (nameId, extId, base64Id, typeData, typeId) => (evt) 
 	$(typeId).val(typeData)
   
     // base64 encode
+	/*
     if (files && file) {
         const reader = new FileReader()
         reader.onload = (readerEvt) => {
@@ -481,7 +482,7 @@ const prepareFileHandler = (nameId, extId, base64Id, typeData, typeId) => (evt) 
             $(base64Id).val(btoa(binaryString))
         }
         reader.readAsBinaryString(file)
-    }
+    }*/
 }
 
 const addFileUploadListener = (elementId, inputIds) => {
