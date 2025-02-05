@@ -1,36 +1,154 @@
-$(document).ready(function(){
-	$('.checkbox input').prop('disabled', true); 
-	
-	$(".agreement-link a").on("click", function(){
-		$(".agreement-block").css("display", "block");
-		$(".agreement-block").animate({"opacity": "1.0"}, 300);    
-	});
+if (!$('#error').length) {    
+   $('#field2682865').after('<div id="error"></div>'); 
+};
 
-	$(".agreement-close").on("click", function(){
-		closeBox();
-	});
+$("#field2682865").on( "click", function( event ) {
+	event.preventDefault();
+    $(this).removeClass('error2'); 
+});
 
-	function closeBox(){
-		$(".agreement-block").animate({"opacity": "0"}, 300, function(){
-			$(".agreement-block").css("display", "none");
-		});
-	}
-  // Проверяем, достигнут ли конец блока с текстом
-    $('.agreement-content').on('scroll', function() {
-        let scrollTop = $(this).scrollTop();
-        let scrollHeight = $(this).prop('scrollHeight');
-        let outerHeight = $(this).outerHeight();
+var token = "9a69485053e79fdc1c87703b5489154cccca7d70";
 
-        if (scrollTop + outerHeight >= scrollHeight) {
-            $('.agreement-button button').prop('disabled', false); // Разблокируем кнопку
-        }
-    });
+function join(arr /*, separator */) {
+  var separator = arguments.length > 1 ? arguments[1] : ", ";
+  return arr.filter(function(n){return n}).join(separator);
+}
+
+function showCountry(address) {
+	if (address.country) {
+		$("#field2699209").val(address.country);
+	} else 
+    $("#field2699209").val("-");
+}
+
+function showPostalCode(address) {
+	if (address.postal_code) {
+		$("#field2699208").val(address.postal_code);
+	} else 
+    $("#field2699208").val("-");
+}
+
+function showRegion(address) {
+	if (address.region) {
+		$("#field2699211").val(join([
+			join([address.region_type, address.region], " "),
+			join([address.area_type, address.area], " ")
+		]));
+	} else 
+    $("#field2699211").val("-");
+}
+
+function showCity(address) {
+	if (address.city) {
+		$("#field2699218").val(address.city);
+	} else 
+    $("#field2699218").val("-");
+}
+
+function showSettlement(address) {
+	if (address.settlement) {
+		$("#field2699219").val(
+			join([address.settlement_type, address.settlement], " ")
+	  );
+	} else 
+	$("#field2699219").val("-");
+}
+
+function showStreet(address) {
+	if (address.street) {
+		$("#field2699220").val(
+			join([address.street_type, address.street], " ")
+		);
+	} else 
+    $("#field2699220").val("-");
+}
+
+function showHouse(address) {
+	if (address.house) {
+		$("#field2699221").val(address.house);
+	} else 
+    $("#field2699221").val("-");
+}
+
+function showHN(address) {
+	if (address.block) {
+		$("#field2699222").val(address.block);		
+	} else 
+    $("#field2699222").val("-");
+}
+
+function showFlat(address) {
+	if (address.flat) {
+		$("#field2699223").val(address.flat);
+	} else 
+    $("#field2699223").val("-");
+}
+
+function showRoom(address) {
+	if (address.room) {
+		$("#field2699319").val(address.room);
+	} else 
+    $("#field2699319").val("-");
+}
+
+$("#field2682865").suggestions({
+	token: token,
+	type: "ADDRESS",
+	count: 10,
+
+	onSelect: function(suggestion) {
+		console.log(suggestion);
+		var address = suggestion.data;
+		showCountry(address);
+		showPostalCode(address);
+		showRegion(address);
+		showCity(address);
+		showSettlement(address);
+		showStreet(address);
+		showHouse(address);
+		showHN(address);
+		showFlat(address);
+		showRoom(address);
+		$('#error').removeClass('error2');
+		if ($('#error').length) {
+		  $('#error').empty();
+		}
+	},
+	  
+	onSearchError: function() {
+		$("#error").text("Подсказки не работают"); 
+	},
   
-  // Обработчик клика на кнопку
-    $('.agreement-button button').on('click', function() {
-        event.preventDefault();
-        closeBox(); // Закрываем всплывающее окно
-		$('.checkbox input').prop('disabled', false);
-        $('.checkbox input').prop('checked', true); // Устанавливаем галочку в чекбоксе
-    });
+	onSelectNothing: function() {
+		if ($('#field2682865').val()) {
+			$('#error').addClass('error2');
+			$('#error').html('<span>Выберите адрес из списка</span>');
+			$('#field2682865').addClass('error2');
+		} else {
+			$('#error').empty();
+		}
+	}
+});
+
+function showCompanySuggestion(suggestion) {
+  console.log(suggestion);
+  var data = suggestion.data;
+  if (!data)
+    return;
+
+  if (data.name) {
+    $("#field2699928").val(data.name.full_with_opf || "");
+  }
+  
+  $("#field2699927").val(data.ogrn);
+  $("#field2687954").val(data.inn);
+}
+
+// По ИНН ищем ОГРН и название организации полное в скрытые поля
+$("#field2687954").suggestions({
+  token: token,
+  type: "PARTY",
+  count: 5,
+  minChars: 10,
+  onSelect: showCompanySuggestion
 });
