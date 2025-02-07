@@ -3,14 +3,10 @@ $(document).ready(function(){
 	
 	// show error field under checkbox on click
 	$(".checkbox label").on("click", function(){
-		console.log('checkbox label click');
 		if (!$(".agreement-link").hasClass('error')) {
 			$(".checkbox").append("<div class='error'>Пожалуйста, прочитайте текст соглашения.</div>");
 			$(".agreement-link").addClass("error"); 
 		}		   
-	});
-	$(".checkbox input").on("click", function(){
-		console.log('checkbox input click');
 	});
 	
 	// show modal window
@@ -44,10 +40,9 @@ $(document).ready(function(){
     $('.agreement-button button').on('click', function() {
         event.preventDefault();
         closeBox(); 
-		$(".agreement-link").remove('.checkbox .error');
-		$(".agreement-link").removeClass("error");
+		$('.agreement-link').remove('.checkbox .error');
+		$('.agreement-link').removeClass("error");
 		$('.checkbox input').prop('disabled', false);
-        $('.checkbox input').prop('checked', true); 
-		$('.checkbox input').trigger('click');
+        $('.checkbox input').trigger('click');
     });
 });
