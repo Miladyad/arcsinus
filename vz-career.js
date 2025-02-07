@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var checkboxContent = $(".checkbox").html;
 	
 	// show error field under checkbox on click
-	$(".checkbox input").on("click", function(){		
+	$(".checkbox label").on("click", function(){		
 		$(".checkbox").html(checkboxContent + "<div class='error'>Пожалуйста, прочитайте текст соглашения.</div>");
 		$(".checkbox").addClass("error");    
 	});
