@@ -3,9 +3,13 @@ $(document).ready(function(){
 	var checkboxContent = $(".checkbox").html;
 	
 	// show error field under checkbox on click
-	$(".checkbox label").on("click", function(){		
+	$(".checkbox label").on("click", function(){
+		console.log('checkbox label click');
 		$(".checkbox").html(checkboxContent + "<div class='error'>Пожалуйста, прочитайте текст соглашения.</div>");
 		$(".checkbox").addClass("error");    
+	});
+	$(".checkbox input").on("click", function(){
+		console.log('checkbox input click');
 	});
 	
 	// show modal window
