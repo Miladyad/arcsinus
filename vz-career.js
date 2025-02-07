@@ -1,11 +1,10 @@
 $(document).ready(function(){
 	$('.checkbox input').prop('disabled', true); 
-	var checkboxContent = $(".checkbox").html;
 	
 	// show error field under checkbox on click
 	$(".checkbox label").on("click", function(){
 		console.log('checkbox label click');
-		$(".checkbox").html(checkboxContent + "<div class='error'>Пожалуйста, прочитайте текст соглашения.</div>");
+		$(".checkbox").append("<div class='error'>Пожалуйста, прочитайте текст соглашения.</div>");
 		$(".checkbox").addClass("error");    
 	});
 	$(".checkbox input").on("click", function(){
@@ -43,7 +42,7 @@ $(document).ready(function(){
     $('.agreement-button button').on('click', function() {
         event.preventDefault();
         closeBox(); 
-		$(".checkbox").html(checkboxContent);
+		$(".checkbox").remove('.checkbox .error');
 		$(".checkbox").removeClass("error");
 		$('.checkbox input').prop('disabled', false);
         $('.checkbox input').prop('checked', true); 
