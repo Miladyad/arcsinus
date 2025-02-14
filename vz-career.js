@@ -44,6 +44,7 @@ $(document).ready(function(){
 		$('.agreement-link').removeClass("error");
 		$('.checkbox input').prop('disabled', false);
 		if (!$('.checkbox').is(':checked')) {
+			console.log('is check - click');
 			$('.checkbox input').trigger('click');
 		}		
     });
