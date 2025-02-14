@@ -39,13 +39,16 @@ $(document).ready(function(){
   // Checking agreement checkbox, removing error
     $('.agreement-button button').on('click', function() {
         event.preventDefault();
-        closeBox(); 
+        closeBox();
 		$('.agreement-link').remove('.checkbox .error');
 		$('.agreement-link').removeClass("error");
 		$('.checkbox input').prop('disabled', false);
 		if (!$('.checkbox input').hasClass('isChecked')) {
+			
 			$('.checkbox input').trigger('click');
 			$('.checkbox input').addClass('isChecked');
-		}		
+		} else {
+			$('.checkbox input').prop('checked', true);
+		}			
     });
 });
