@@ -43,7 +43,8 @@ $(document).ready(function(){
 		$('.agreement-link').remove('.checkbox .error');
 		$('.agreement-link').removeClass("error");
 		$('.checkbox input').prop('disabled', false);
-        $('.checkbox input').trigger('click');
-		$('.agreement-button button').prop('disabled', true);
+		if (!$('.checkbox').is(':checked')) {
+			$('.checkbox input').trigger('click');
+		}		
     });
 });
