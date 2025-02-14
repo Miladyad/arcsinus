@@ -44,5 +44,6 @@ $(document).ready(function(){
 		$('.agreement-link').removeClass("error");
 		$('.checkbox input').prop('disabled', false);
         $('.checkbox input').trigger('click');
+		$('.agreement-button button').prop('disabled', true);
     });
 });
