@@ -43,12 +43,8 @@ $(document).ready(function(){
 		$('.agreement-link').remove('.checkbox .error');
 		$('.agreement-link').removeClass("error");
 		$('.checkbox input').prop('disabled', false);
-		if (!$('.checkbox input').hasClass('isChecked')) {
-			
-			$('.checkbox input').trigger('click');
-			$('.checkbox input').addClass('isChecked');
-		} else {
-			$('.checkbox input').prop('checked', true);
-		}			
+		$('.checkbox input').addClass('isChecked');
+		$('.checkbox input').prop('checked', false);
+		$('.checkbox input').trigger('click');			
     });
 });
