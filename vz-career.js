@@ -26,7 +26,7 @@ $(document).ready(function(){
 	}
 	
   // agreement text is read
-    $('.agreement-content').on('scroll', function() {
+    /*$('.agreement-content').on('scroll', function() {
         let scrollTop = $(this).scrollTop();
         let scrollHeight = $(this).prop('scrollHeight');
         let outerHeight = $(this).outerHeight();
@@ -34,7 +34,7 @@ $(document).ready(function(){
         if (scrollTop + outerHeight >= scrollHeight) {
             $('.agreement-button button').prop('disabled', false); // unblocking agreement button
         }
-    });
+    });*/
   
   // Checking agreement checkbox, removing error
     $('.agreement-button button').on('click', function() {
