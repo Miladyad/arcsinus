@@ -1,13 +1,13 @@
 $(document).ready(function(){
-	$('.checkbox input').prop('disabled', true); 
+	// $('.checkbox input').prop('disabled', true); 
 	
 	// show error field under checkbox on click
-	$(".checkbox label").on("click", function(){
+	/*$(".checkbox label").on("click", function(){
 		if (!$(".agreement-link").hasClass('error') & !$('.checkbox input').hasClass('isChecked')) {
 			$(".checkbox").append("<div class='error'>Пожалуйста, прочитайте текст соглашения.</div>");
 			$(".agreement-link").addClass("error"); 
 		}		   
-	});
+	});*/
 	
 	// show modal window
 	$(".agreement-link a").on("click", function(){
@@ -37,7 +37,7 @@ $(document).ready(function(){
     });*/
   
   // Checking agreement checkbox, removing error
-    $('.agreement-button button').on('click', function() {
+    /*$('.agreement-button button').on('click', function() {
         event.preventDefault();
         closeBox();
 		$('.agreement-link').remove('.checkbox .error');
@@ -46,5 +46,5 @@ $(document).ready(function(){
 		$('.checkbox input').addClass('isChecked');
 		$('.checkbox input').prop('checked', false);
 		$('.checkbox input').trigger('click');			
-    });
+    });*/
 });
