@@ -10,10 +10,10 @@ $(document).ready(function(){
 	});*/
 	
 	// show modal window
-	$(".agreement-link a").on("click", function(){
+	/*$(".agreement-link a").on("click", function(){
 		$(".agreement-block").css("display", "block");
 		$(".agreement-block").animate({"opacity": "1.0"}, 300);    
-	});
+	});*/
 	
 	// close modal window
 	$(".agreement-close").on("click", function(){
