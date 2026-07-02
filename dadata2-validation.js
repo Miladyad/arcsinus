@@ -23,12 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
     errorMessage.style.lineHeight = "1.4";
     errorMessage.style.display = "none";
 
-    errorMessage.innerHTML = `
-        Ваш ИНН не найден в реестре. Возможно, допущена ошибка при написании номера ИНН.
-        Пожалуйста, отправьте письмо в свободной форме на адрес
-        <a href="mailto:dov.gashenie@ews.ru">dov.gashenie@ews.ru</a>,
-        с темой «Запрос на подключение».
-    `;
+    errorMessage.innerHTML =
+        'Ваш ИНН не найден в реестре. Возможно, допущена ошибка при написании номера ИНН. ' +
+        'Пожалуйста, отправьте письмо в свободной форме на адрес ' +
+        '<a href="mailto:dov.gashenie@ews.ru">dov.gashenie@ews.ru</a>, ' +
+        'с темой «Запрос на подключение».';
 
     innField.insertAdjacentElement("afterend", errorMessage);
 
@@ -70,6 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
         field.dispatchEvent(new Event("change", { bubbles: true }));
     }
 
+    // При загрузке страницы все поля заблокированы
+    clearFields();
+
     async function loadCompany(inn) {
 
         inn = inn.replace(/\D/g, "");
@@ -108,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const result = await response.json();
 
             // Организация не найдена
-            if (!result.suggestions || !result.suggestions.length) {
+            if (!result.suggestions || result.suggestions.length === 0) {
                 clearFields();
                 showError();
                 return;
@@ -122,13 +124,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (company.type === "INDIVIDUAL") {
                 setField(fields.name, result.suggestions[0].value);
             } else {
-                setField(fields.name, company.name?.short_with_opf || result.suggestions[0].value);
+                setField(
+                    fields.name,
+                    company.name?.short_with_opf || result.suggestions[0].value
+                );
             }
 
             // КПП
             setField(fields.kpp, company.kpp || "");
 
-            // Адрес
+            // Юридический адрес
             setField(fields.address, company.address?.value || "");
 
             // Руководитель
