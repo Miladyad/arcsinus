@@ -137,7 +137,26 @@ document.addEventListener("DOMContentLoaded", function () {
             setField(fields.address, company.address?.value || "");
 
             // Руководитель
-            setField(fields.director, company.management?.name || "");
+            let director = company.management?.name || "";
+            
+            // Если у ИП нет руководителя в Dadata,
+            // пытаемся извлечь ФИО из названия только если оно имеет вид
+            // "ИП Фамилия Имя Отчество" или
+            // "Индивидуальный предприниматель Фамилия Имя Отчество"
+            if (!director && company.type === "INDIVIDUAL") {
+            
+                const title = result.suggestions[0].value || "";
+            
+                const match = title.match(
+                    /^(?:ИП|Индивидуальный предприниматель)\s+([А-ЯЁ][а-яё-]+)\s+([А-ЯЁ][а-яё-]+)\s+([А-ЯЁ][а-яё-]+)$/i
+                );
+            
+                if (match) {
+                    director = `${match[1]} ${match[2]} ${match[3]}`;
+                }
+            }
+            
+            setField(fields.director, director);
 
             // Должность
             setField(fields.post, company.management?.post || "");
