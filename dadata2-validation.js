@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
         director: document.getElementById("field3068439"),
         post: document.getElementById("field3068440")
     };
+    // При загрузке страницы блокируем поля
+    Object.values(fields).forEach(field => {
+        if (!field) return;
+    
+        field.value = "";
+        field.disabled = true;
+        field.setAttribute("disabled", "disabled");
+    });
 
     let lastInn = "";
 
