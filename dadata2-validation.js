@@ -13,14 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
         director: document.getElementById("field3068439"),
         post: document.getElementById("field3068440")
     };
-    // При загрузке страницы блокируем поля
-    Object.values(fields).forEach(field => {
-        if (!field) return;
-    
-        field.value = "";
-        field.disabled = true;
-        field.setAttribute("disabled", "disabled");
-    });
 
     let lastInn = "";
 
@@ -55,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             field.value = "";
             field.disabled = true;
+            field.setAttribute("disabled", "disabled");
 
             field.dispatchEvent(new Event("input", { bubbles: true }));
             field.dispatchEvent(new Event("change", { bubbles: true }));
@@ -79,27 +72,82 @@ document.addEventListener("DOMContentLoaded", function () {
         field.dispatchEvent(new Event("change", { bubbles: true }));
     }
 
-    // При загрузке страницы все поля заблокированы
+    // Блокируем поля при загрузке страницы
     clearFields();
+	
+	function isValidInn(inn) {
+
+    if (!/^\d{10}$|^\d{12}$/.test(inn)) {
+        return false;
+    }
+
+    const digits = inn.split('').map(Number);
+
+    if (inn.length === 10) {
+        const k = (
+            2 * digits[0] +
+            4 * digits[1] +
+            10 * digits[2] +
+            3 * digits[3] +
+            5 * digits[4] +
+            9 * digits[5] +
+            4 * digits[6] +
+            6 * digits[7] +
+            8 * digits[8]
+        ) % 11 % 10;
+
+        return k === digits[9];
+    }
+
+    const k11 = (
+        7 * digits[0] +
+        2 * digits[1] +
+        4 * digits[2] +
+        10 * digits[3] +
+        3 * digits[4] +
+        5 * digits[5] +
+        9 * digits[6] +
+        4 * digits[7] +
+        6 * digits[8] +
+        8 * digits[9]
+    ) % 11 % 10;
+
+    const k12 = (
+        3 * digits[0] +
+        7 * digits[1] +
+        2 * digits[2] +
+        4 * digits[3] +
+        10 * digits[4] +
+        3 * digits[5] +
+        5 * digits[6] +
+        9 * digits[7] +
+        4 * digits[8] +
+        6 * digits[9] +
+        8 * digits[10]
+    ) % 11 % 10;
+
+    return k11 === digits[10] && k12 === digits[11];
+}
 
     async function loadCompany(inn) {
 
         inn = inn.replace(/\D/g, "");
 
-        // Не делать повторный запрос
+        hideError();
+
+       if (!isValidInn(inn)) {
+			lastInn = "";
+			clearFields();
+			showError();
+			return;
+		}
+
+        // Уже успешно искали этот ИНН
         if (inn === lastInn) {
             return;
         }
 
-        lastInn = inn;
-
-        hideError();
-
-        // Проверка длины ИНН
-        if (!(inn.length === 10 || inn.length === 12)) {
-            clearFields();
-            return;
-        }
+        clearFields();
 
         try {
 
@@ -119,14 +167,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const result = await response.json();
 
-            // Организация не найдена
             if (!result.suggestions || result.suggestions.length === 0) {
                 clearFields();
                 showError();
+                lastInn = "";
                 return;
             }
 
             const company = result.suggestions[0].data;
+
+            // Запоминаем только успешный поиск
+            lastInn = inn;
 
             enableFields();
 
@@ -143,29 +194,25 @@ document.addEventListener("DOMContentLoaded", function () {
             // КПП
             setField(fields.kpp, company.kpp || "");
 
-            // Юридический адрес
+            // Адрес
             setField(fields.address, company.address?.value || "");
 
             // Руководитель
             let director = company.management?.name || "";
-            
-            // Если у ИП нет руководителя в Dadata,
-            // пытаемся извлечь ФИО из названия только если оно имеет вид
-            // "ИП Фамилия Имя Отчество" или
-            // "Индивидуальный предприниматель Фамилия Имя Отчество"
+
             if (!director && company.type === "INDIVIDUAL") {
-            
+
                 const title = result.suggestions[0].value || "";
-            
+
                 const match = title.match(
                     /^(?:ИП|Индивидуальный предприниматель)\s+([А-ЯЁ][а-яё-]+)\s+([А-ЯЁ][а-яё-]+)\s+([А-ЯЁ][а-яё-]+)$/i
                 );
-            
+
                 if (match) {
                     director = `${match[1]} ${match[2]} ${match[3]}`;
                 }
             }
-            
+
             setField(fields.director, director);
 
             // Должность
@@ -174,28 +221,25 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (e) {
             console.error("Dadata error:", e);
             clearFields();
+            showError();
+            lastInn = "";
         }
     }
 
-    let timer;
-
     innField.addEventListener("input", function () {
 
-        // Оставляем только цифры
         this.value = this.value.replace(/\D/g, "").slice(0, 12);
-    
+
         hideError();
-    
-        clearTimeout(timer);
-    
-        timer = setTimeout(() => {
-            loadCompany(this.value);
-        }, 500);
-    
+
     });
 
     innField.addEventListener("blur", function () {
-        loadCompany(this.value);
-    });
+
+		this.value = this.value.replace(/\D/g, "").trim();
+
+		loadCompany(this.value);
+
+	});
 
 });
