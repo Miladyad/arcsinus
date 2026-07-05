@@ -4,9 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const URL = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/party";
 
     const innField = document.getElementById("field3068428");
-	const innFieldWrapper =
-    innField.closest(".shift") ||
-    innField.parentElement;
+	const innFieldWrapper = innField.closest(".shift");
+	const innUnit = innField.closest(".unit");
     innField.setAttribute("maxlength", "12");
 
     const fields = {
@@ -32,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		'с темой «Запрос на подключение».';
 
 	// Добавляем сразу после поля ИНН
-	if (innFieldWrapper) {
-		innFieldWrapper.appendChild(errorMessage);
+	if (innUnit) {
+		innUnit.insertAdjacentElement("afterend", errorMessage);
 	}
 
     function showError() {
