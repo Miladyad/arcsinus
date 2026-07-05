@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const URL = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/party";
 
     const innField = document.getElementById("field3068428");
+    innField.setAttribute("maxlength", "12");
 
     const fields = {
         name: document.getElementById("field3068350"),
@@ -25,10 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Сообщение об ошибке
     const errorMessage = document.createElement("div");
-    errorMessage.style.color = "#d32f2f";
-    errorMessage.style.fontSize = "13px";
-    errorMessage.style.marginTop = "6px";
-    errorMessage.style.lineHeight = "1.4";
+    errorMessage.style.color = "#FF3D71";
+    errorMessage.style.fontSize = "0.75rem";
+    errorMessage.style.marginTop = "0.25rem";
+    errorMessage.style.fontWeight = "500";
+    errorMessage.style.lineHeight = "130%";
     errorMessage.style.display = "none";
 
     errorMessage.innerHTML =
@@ -179,14 +181,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     innField.addEventListener("input", function () {
 
+        // Оставляем только цифры
+        this.value = this.value.replace(/\D/g, "").slice(0, 12);
+    
         hideError();
-
+    
         clearTimeout(timer);
-
+    
         timer = setTimeout(() => {
             loadCompany(this.value);
         }, 500);
-
+    
     });
 
     innField.addEventListener("blur", function () {
