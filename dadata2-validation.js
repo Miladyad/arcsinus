@@ -38,9 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showError() {
 
-    if (innFieldWrapper) {
-        innFieldWrapper.classList.add("error");
-	}
+		if (innFieldWrapper) {
+			innFieldWrapper.classList.add("error");
+		}
 
 		errorMessage.style.display = "block";
 	}
