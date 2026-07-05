@@ -18,20 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Сообщение об ошибке
     const errorMessage = document.createElement("div");
-    errorMessage.style.color = "#FF3D71";
-    errorMessage.style.fontSize = "0.75rem";
-    errorMessage.style.marginTop = "0.25rem";
-    errorMessage.style.fontWeight = "500";
-    errorMessage.style.lineHeight = "130%";
-    errorMessage.style.display = "none";
 
-    errorMessage.innerHTML =
-        'Ваш ИНН не найден в реестре. Возможно, допущена ошибка при написании номера ИНН. ' +
-        'Пожалуйста, отправьте письмо в свободной форме на адрес ' +
-        '<a href="mailto:dov.gashenie@ews.ru">dov.gashenie@ews.ru</a>, ' +
-        'с темой «Запрос на подключение».';
+	errorMessage.className = "error";
+	errorMessage.style.display = "none";
 
-    innField.insertAdjacentElement("afterend", errorMessage);
+	errorMessage.innerHTML =
+		'Ваш ИНН не найден в реестре. Возможно, допущена ошибка при написании номера ИНН. ' +
+		'Пожалуйста, отправьте письмо в свободной форме на адрес ' +
+		'<a href="mailto:dov.gashenie@ews.ru">dov.gashenie@ews.ru</a>, ' +
+		'с темой «Запрос на подключение».';
+
+	// Добавляем сразу после поля ИНН
+	innField.insertAdjacentElement("afterend", errorMessage);
 
     function showError() {
         errorMessage.style.display = "block";
