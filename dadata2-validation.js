@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Сообщение об ошибке
     const errorMessage = document.createElement("div");
 
-	errorMessage.className = "error";
+	errorMessage.className = "error2";
 	errorMessage.style.display = "none";
 
 	errorMessage.innerHTML =
